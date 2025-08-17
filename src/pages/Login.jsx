@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaLock, FaEnvelope } from 'react-icons/fa';
 import axios from "axios";
+import API_BASE_URL from "../config";
 
 const Login = () => {
   const [form, setForm] = useState({ email: '', password: '' });
@@ -16,7 +17,7 @@ const Login = () => {
 
     try {
       setLoading(true);
-      const res = await axios.post("http://localhost:5000/api/auth/login", {
+      const res = await axios.post(`${API_BASE_URL}/api/auth/login`, {
         email: form.email,
         password: form.password,
       });
